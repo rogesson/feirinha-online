@@ -20,6 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'rest-client'
 gem 'devise'
+gem 'rack-cors'
+gem 'simple_token_authentication', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
