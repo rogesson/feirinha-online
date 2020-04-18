@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:10.3'
+
+  redis:
+    image: 'redis:3.2.6'
+
+  web:
+    build: .
+    command: bash -c "build-scripts/web/initialize.sh"
+    restart: on-failure
+    volumes:
+      - .:/var/www/feirinha-online
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+      - redis
