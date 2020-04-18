@@ -1,0 +1,11 @@
+<% if current_user %>
+  <%= current_user['login'] %>
+<% else %>
+  Efetue o login
+<% end %>
+
+<br>
+<br>
+<br>
+
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
