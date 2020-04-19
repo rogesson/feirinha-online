@@ -14,4 +14,3 @@ Category.create(name: 'Ornamentos')
 
 Role.create(name: 'Vendedor')
 Role.create(name: 'Comprador')
-Role.create(name: 'Administrador')
