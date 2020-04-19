@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
 
   has_many :stores
   has_many :payments
-
-  def role
-    Role.find_by_id(role_id)
-  end
+  has_one :user_role
+  has_one :role, through: :user_role
 end
