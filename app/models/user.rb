@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :role
 
   has_many :stores
   has_many :payments
+
+  def role
+    Role.find_by_id(role_id)
+  end
 end
