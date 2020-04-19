@@ -10,7 +10,10 @@ class Api::V1::StoresController < ApplicationController
   # POST
   # localhost:3000/api/v1/stores/
   def create
-    @store = Store.new(params[:store])
+    store_hash = { "store" => store_params }
+    store_hash['store']['user_id'] = current_user.id
+
+    @store = Store.new(store_hash['store'])
     if @store.save
       json_response 'Loja criada!', true, { store: @store }, :ok
     else
@@ -56,11 +59,13 @@ class Api::V1::StoresController < ApplicationController
   # localhost:3000/api/v1/stores/:id/
   def destroy
     @store = Store.find_by(id: params[:id])
-    if @store
-      @store.destroy
-      json_response 'Sua loja foi removida', true, {}, :ok
-    else
-      json_response 'Não foi possível excluir', false, {}, :bad_request
-    end
+    @store.destroy
+    json_response 'Sua loja foi removida', true, {}, :ok
   end
+
+  private
+
+    def store_params
+      params.require(:store).permit(:name, :category_id)
+    end
 end
