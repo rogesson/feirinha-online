@@ -6,6 +6,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new user_params
     if user.save
+      UserRole.create(user_id: user.id, role_id: params[:user][:role_id]).save
       json_response 'Conta criada com sucesso!', true, { user: user }, :ok
     else
       json_response 'Algo deu errado!', false, {}, :unprocessable_entity
