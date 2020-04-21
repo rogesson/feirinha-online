@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_064410) do
+ActiveRecord::Schema.define(version: 2020_04_19_043953) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 2020_04_19_064410) do
     t.float "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint ":category_id", null: false
-    t.bigint ":store_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "store_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -59,8 +61,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_064410) do
   end
 
   create_table "user_roles", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "role_id", null: false
+    t.integer "user_id"
+    t.integer "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_id"], name: "index_user_roles_on_role_id"
@@ -68,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_064410) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "login", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
