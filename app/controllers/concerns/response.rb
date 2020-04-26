@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# This module is responsible to return json data
 module Response
-  def json_response message, is_success, data, status
+  def json_response(message, is_success, data, status)
     render json: {
       message: message,
       is_success: is_success,
