@@ -22,6 +22,7 @@ gem 'rest-client'
 gem 'devise'
 gem 'rack-cors'
 gem 'simple_token_authentication', '~> 1.0'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -31,6 +32,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do

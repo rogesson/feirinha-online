@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :stores
-  has_many :payments
-  has_one :user_role
-  has_one :role, through: :user_role
+  has_many   :stores
+  has_many   :payments
+  belongs_to :role
+
+  def serialize
+    UserSerializer.new(self).to_hash
+  end
 end

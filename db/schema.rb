@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_043953) do
+ActiveRecord::Schema.define(version: 2020_04_24_225023) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -60,15 +60,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_043953) do
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
-  create_table "user_roles", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_user_roles_on_role_id"
-    t.index ["user_id"], name: "index_user_roles_on_user_id", unique: true
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -79,9 +70,11 @@ ActiveRecord::Schema.define(version: 2020_04_19_043953) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "authentication_token", limit: 30
+    t.integer "role_id"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
