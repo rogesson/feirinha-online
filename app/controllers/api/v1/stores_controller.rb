@@ -10,7 +10,7 @@ class Api::V1::StoresController < ApplicationController
   # POST
   # localhost:3000/api/v1/stores/
   def create
-    store_hash = { "store" => store_params }
+    store_hash = { 'store' => store_params }
     store_hash['store']['user_id'] = current_user.id
 
     @store = Store.new(store_hash['store'])
@@ -25,8 +25,11 @@ class Api::V1::StoresController < ApplicationController
   # localhost:3000/api/v1/stores/:id
   def show
     @store = Store.find_by(id: params[:id])
+
     if @store
-      json_response 'Loja encontrada', true, { store: @store }, :ok
+      store_hash = @store.attributes
+      store_hash.store('products', @store.products)
+      json_response 'Loja encontrada', true, { store: store_hash }, :ok
     else
       json_response 'Loja não encontrada', false, {}, :not_found
     end
@@ -65,7 +68,7 @@ class Api::V1::StoresController < ApplicationController
 
   private
 
-    def store_params
-      params.require(:store).permit(:name, :category_id)
-    end
+  def store_params
+    params.require(:store).permit(:name, :category_id)
+  end
 end

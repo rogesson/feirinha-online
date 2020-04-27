@@ -1,12 +1,11 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_params_exist, only: :create
 
-  # Params: user[name], user[login], user[email], user[password], user[password_confirmation]
+  # Params: user[name], user[login], user[email], user[password], user[password_confirmation], user[role_id]
   # Route: api/v1/signup
   def create
-    user = User.new user_params
+    user = User.new(user_params)
     if user.save
-      UserRole.create(user_id: user.id, role_id: params[:user][:role_id]).save
       json_response 'Conta criada com sucesso!', true, { user: user }, :ok
     else
       json_response 'Algo deu errado!', false, {}, :unprocessable_entity
@@ -16,7 +15,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    params.require(:user).permit(:name, :login, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_id)
   end
 
   def ensure_params_exist
