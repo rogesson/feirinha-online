@@ -14,3 +14,7 @@ Category.create(name: 'Ornamentos')
 
 Role.create(name: 'Vendedor')
 Role.create(name: 'Comprador')
+
+User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', role_id: 1)
+
+Store.create(name: 'Loja Teste', category_id: 1, user_id: 1)
