@@ -27,7 +27,7 @@ gem 'active_model_serializers'
 group :development, :test do
   # gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', require: 'dotenv/rails-now'
-  gem 'factory_bot'
+  # gem 'factory_bot'
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails'
