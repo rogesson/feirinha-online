@@ -1,5 +1,5 @@
 {
-   "message":"List of all users",
+   "message":"Todos os usuários",
    "is_success":true,
    "data":{
       "users":[
