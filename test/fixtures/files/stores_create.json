@@ -1,0 +1,12 @@
+{
+   "message":"Loja criada!",
+   "is_success":true,
+   "data":{
+      "store":{
+         "id":1,
+         "name":"Store 3",
+         "category_id":1,
+         "user_id":1
+      }
+   }
+}

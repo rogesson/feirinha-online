@@ -1,21 +1,19 @@
 class Api::V1::StoresController < ApplicationController
-
   # GET
   # localhost:3000/api/v1/stores/
   def index
-    @stores = Store.all
-    json_response 'Todas as lojas', true, { stores: @stores }, :ok
+    stores = Store.all.map(&:serialize)
+    json_response 'Todas as lojas', true, { stores: stores }, :ok
   end
 
   # POST
   # localhost:3000/api/v1/stores/
   def create
-    debugger
-    store_hash = { 'store' => store_params }
-    store_hash['store']['user_id'] = current_user.id
-    @store = Store.new(store_hash['store'])
-    if @store.save
-      json_response 'Loja criada!', true, { store: @store }, :ok
+    store = Store.new(store_params)
+    store.user_id = current_user.id
+
+    if store.save!
+      json_response 'Loja criada!', true, { store: store.serialize }, :ok
     else
       json_response 'Não foi possível salvar', false, {}, :bad_request
     end
@@ -72,11 +70,11 @@ class Api::V1::StoresController < ApplicationController
 
   private
 
-  def store_params
-    params.require(:store).permit(:name, :category_id)
-  end
+    def store_params
+      params.require(:store).permit(:name, :category_id)
+    end
 
-  def is_store_owner?(id)
-    current_user.id == id
-  end
+    def is_store_owner?(id)
+      current_user.id == id
+    end
 end

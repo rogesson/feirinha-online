@@ -1,0 +1,20 @@
+{
+   "message":"Todas as lojas",
+   "is_success":true,
+   "data":{
+      "stores":[
+         {
+            "id":1,
+            "name":"Loja 1",
+            "category_id":1,
+            "user_id":1
+         },
+         {
+            "id":2,
+            "name":"Loja 2",
+            "category_id":1,
+            "user_id":2
+         }
+      ]
+   }
+}

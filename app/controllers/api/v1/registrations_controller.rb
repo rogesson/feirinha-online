@@ -1,5 +1,6 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_params_exist, only: :create
+  skip_before_action :authenticate, only: :create
 
   # Params: user[name], user[login], user[email], user[password], user[password_confirmation], user[role_id]
   # Route: api/v1/signup
