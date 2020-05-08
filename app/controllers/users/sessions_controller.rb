@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def authenticate
     asdasdas
-    authentication_token = request.headers[:authentication_token]
+    authentication_token = request.headers['authentication-token']
 
     unless authentication_token.present?
       json_response 'authentication_token can not be blank', false, {}, :bad_request

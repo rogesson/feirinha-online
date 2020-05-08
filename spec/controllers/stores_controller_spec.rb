@@ -86,6 +86,6 @@ RSpec.describe Api::V1::StoresController, :type => :controller do
   end
 
   def set_authentication_token
-    request.headers.merge({ authentication_token: @user.authentication_token })
+    request.headers.merge({ "authentication-token" => @user.authentication_token })
   end
 end

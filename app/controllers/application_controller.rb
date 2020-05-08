@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   protected
 
     def authenticate
-      authentication_token = request.headers[:authentication_token]
+      authentication_token = request.headers['authentication-token']
 
       unless authentication_token.present?
-        json_response 'authentication_token can not be blank', false, {}, :bad_request
+        json_response 'authentication-token can not be blank', false, {}, :bad_request
 
         return
       end
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by_authentication_token(authentication_token)
 
       if @current_user.nil?
-        json_response 'authentication_token not found', false, {}, :bad_request
+        json_response 'authentication-token not found', false, {}, :bad_request
 
         return
       end
