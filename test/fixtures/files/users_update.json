@@ -1,0 +1,13 @@
+{
+   "message":"Suas informações foram atualizadas",
+   "is_success":true,
+   "data":{
+      "user":{
+         "id":1,
+         "name":"Updated",
+         "email":"updated@mail.com",
+         "role_name":"Comprador",
+         "role_id":1
+      }
+   }
+}

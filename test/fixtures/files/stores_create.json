@@ -1,0 +1,21 @@
+{
+   "message":"Loja criada!",
+   "is_success":true,
+   "data":{
+      "store":{
+         "id":1,
+         "name":"Store 3",
+         "category":{
+            "id":1,
+            "name":"Alimentos"
+         },
+         "user":{
+            "id":1,
+            "name":"Teste"
+         },
+         "products":[
+
+         ]
+      }
+   }
+}

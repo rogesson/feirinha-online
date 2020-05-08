@@ -1,0 +1,21 @@
+{
+   "message":"Sua loja foi atualizada",
+   "is_success":true,
+   "data":{
+      "store":{
+         "id":1,
+         "name":"Store 4 Updated",
+         "category":{
+            "id":1,
+            "name":"Alimentos"
+         },
+         "user":{
+            "id":1,
+            "name":"Teste"
+         },
+         "products":[
+
+         ]
+      }
+   }
+}

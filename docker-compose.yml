@@ -4,9 +4,6 @@ services:
   postgres:
     image: 'postgres:10.3'
 
-  redis:
-    image: 'redis:3.2.6'
-
   web:
     build: .
     command: bash -c "build-scripts/web/initialize.sh"
@@ -19,4 +16,3 @@ services:
       - postgres
     links:
       - postgres
-      - redis

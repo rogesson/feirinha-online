@@ -1,20 +1,20 @@
 {
-   "message":"List of all users",
+   "message":"Todos os usuários",
    "is_success":true,
    "data":{
       "users":[
          {
             "id":1,
-            "name":"User 2",
-            "email":"teste1@teste",
-            "role_name": "Vendedor",
+            "name":"User",
+            "email":"teste@teste.com",
+            "role_name":"Comprador",
             "role_id":1
          },
          {
             "id":2,
-            "name":"User 1",
-            "email":"teste2@teste",
-            "role_name": "Vendedor",
+            "name":"User 2",
+            "email":"teste2@teste.com",
+            "role_name":"Comprador",
             "role_id":1
          }
       ]

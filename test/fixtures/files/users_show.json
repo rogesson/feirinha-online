@@ -1,0 +1,13 @@
+{
+   "message":"Visualizar informações",
+   "is_success":true,
+   "data":{
+      "user":{
+         "id":1,
+         "name":"User",
+         "email":"teste@teste.com",
+         "role_name":"Comprador",
+         "role_id":1
+      }
+   }
+}

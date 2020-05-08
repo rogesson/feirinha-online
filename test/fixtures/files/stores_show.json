@@ -1,0 +1,21 @@
+{
+   "message":"Loja encontrada",
+   "is_success":true,
+   "data":{
+      "store":{
+         "id":1,
+         "name":"Loja 1",
+         "category":{
+            "id":1,
+            "name":"Alimentos"
+         },
+         "user":{
+            "id":1,
+            "name":"Teste"
+         },
+         "products":[
+
+         ]
+      }
+   }
+}
