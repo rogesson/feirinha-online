@@ -6,7 +6,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   # Route: api/v1/signup
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save!
       json_response 'Conta criada com sucesso!', true, { user: @user }, :ok
     else
       json_response 'Algo deu errado!', false, {}, :unprocessable_entity
