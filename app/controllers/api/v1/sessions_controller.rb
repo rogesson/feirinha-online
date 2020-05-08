@@ -2,6 +2,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   before_action :load_user, only: :create
   before_action :valid_token, only: :destroy
   skip_before_action :verify_signed_out_user, only: :destroy
+  skip_before_action :authenticate, expect: :destroy
 
   def create
     if @user.valid_password?(sign_in_params[:password])
@@ -35,7 +36,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def valid_token
-    @user = User.find_by authentication_token: request.headers['AUTH-TOKEN']
+    @user = User.find_by authentication_token: request.headers['authentication_token']
     if @user
       return @user
     else

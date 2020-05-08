@@ -6,14 +6,32 @@
          {
             "id":1,
             "name":"Loja 1",
-            "category_id":1,
-            "user_id":1
+            "category":{
+               "id":1,
+               "name":"Alimentos"
+            },
+            "user":{
+               "id":1,
+               "name":"Teste"
+            },
+            "products":[
+
+            ]
          },
          {
             "id":2,
             "name":"Loja 2",
-            "category_id":1,
-            "user_id":2
+            "category":{
+               "id":1,
+               "name":"Alimentos"
+            },
+            "user":{
+               "id":2,
+               "name":"Teste 2"
+            },
+            "products":[
+
+            ]
          }
       ]
    }

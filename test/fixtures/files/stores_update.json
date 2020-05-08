@@ -1,10 +1,10 @@
 {
-   "message":"Loja criada!",
+   "message":"Sua loja foi atualizada",
    "is_success":true,
    "data":{
       "store":{
          "id":1,
-         "name":"Store 3",
+         "name":"Store 4 Updated",
          "category":{
             "id":1,
             "name":"Alimentos"

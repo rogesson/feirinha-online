@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'stores#index' 
+  root 'stores#index'
 
   devise_for :users
 

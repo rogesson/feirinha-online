@@ -8,7 +8,7 @@ RSpec.describe Api::V1::SessionsController, :type => :controller do
   end
 
   describe '#create' do
-    it 'should return serialized json when user logs in'do
+    it 'should return serialized json when user logs in' do
       params = { user: { email: @user.email, password: @user.password } }
       post :create, params: params
       json_response = JSON.parse(response.body)
@@ -35,14 +35,18 @@ RSpec.describe Api::V1::SessionsController, :type => :controller do
 
   describe '#destroy' do
     it 'should logout the user' do
+      set_authentication_token
       params = { user: { email: @user.email, password: @user.password } }
-      headers = { 'AUTH-TOKEN' => @user.authentication_token }
-      post :create, params: params
-      request.headers.merge! headers
+
       delete :destroy
+
       json_response = JSON.parse(response.body)
       expect(json_response['data']).to eq({})
       expect(json_response['message']).to eq('Logout efetuado.')
     end
+  end
+
+  def set_authentication_token
+    request.headers.merge({ authentication_token: @user.authentication_token })
   end
 end

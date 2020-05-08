@@ -1,10 +1,10 @@
 {
-   "message":"Loja criada!",
+   "message":"Loja encontrada",
    "is_success":true,
    "data":{
       "store":{
          "id":1,
-         "name":"Store 3",
+         "name":"Loja 1",
          "category":{
             "id":1,
             "name":"Alimentos"
