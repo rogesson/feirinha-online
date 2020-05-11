@@ -23,6 +23,7 @@ gem 'devise'
 gem 'rack-cors'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'active_model_serializers'
+gem 'markdown-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
