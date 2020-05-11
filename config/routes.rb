@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '/documentations', to: 'documentations#show'
 end

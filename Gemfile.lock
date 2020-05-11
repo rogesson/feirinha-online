@@ -104,6 +104,9 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
+    markdown-rails (0.2.1)
+      rails
+      rdiscount (>= 1.6.8, < 2.0)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -166,6 +169,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rdiscount (1.6.8)
     redis (4.1.3)
     ref (2.0.0)
     responders (3.0.0)
@@ -270,6 +274,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  markdown-rails
   pg (>= 0.18, < 2.0)
   pry-rails
   puma (~> 3.11)
