@@ -11,6 +11,7 @@ class Api::V1::StoresController < ApplicationController
   def create
     store = Store.new(store_params)
     store.user_id = current_user.id
+    store.status = Status.find_by_name('inactive')
 
     if store.save!
       json_response 'Loja criada!', true, { store: store.serialize }, :ok
