@@ -28,6 +28,7 @@ jobs:
       with:
         ruby-version: 2.6
     - name: Install dependencies
+      run: apt-get install libsqlite3-dev
       run: bundle install
     - name: Run tests
       run: bundle exec rake
