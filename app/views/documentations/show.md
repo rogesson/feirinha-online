@@ -42,8 +42,7 @@ Em construção
           "name": "rogesson",
           "email": "rogessonb@gmail.com",
           "password": "123912391@@28",
-          "password_confirmation": "123912391@@28",
-          "role_id": 1
+          "password_confirmation": "123912391@@28"
         }
       }
 
@@ -59,8 +58,7 @@ Retorno:
                 "created_at": "2020-05-08T22:03:01.424Z",
                 "updated_at": "2020-05-08T22:03:01.424Z",
                 "email": "rogessonb@gmail.com",
-                "authentication_token": "VokFx2yxzh7WbQ4c_J7N",
-                "role_id": 1
+                "authentication_token": "VokFx2yxzh7WbQ4c_J7N"
             }
         }
       }
@@ -87,9 +85,8 @@ Retorno:
           "user": {
               "id": 1,
               "name": "rogesson",
-              "email": "rogessonb@gmail.com",
-              "role_name": "Vendedor",
-              "role_id": 1
+              "email": "rogessonb@gmail.com"
+              "authentication_token": "VokFx2yxzh7WbQ4c_J7N"
           }
       }
     }
@@ -239,4 +236,6 @@ Em construção
 
 - 08/05/2020 - Criação da documentação. Por: Rogesson
 
+- 11/05/2020 - Remoção de 'role_id' dos parâmetros de envio em Criação de Usuário. Por: Hugo
 
+- 11/05/2020 - Remoção de 'role_id' e 'role_name' e inclusão de 'authentication_token' nos retorno de Login de Usuário. Por: Hugo 

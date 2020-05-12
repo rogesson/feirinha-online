@@ -59,6 +59,7 @@ GEM
       activesupport
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    cpf_cnpj (0.5.0)
     crass (1.0.6)
     database_cleaner (1.8.4)
     devise (4.7.1)
@@ -267,6 +268,7 @@ DEPENDENCIES
   active_model_serializers
   bootsnap (>= 1.1.0)
   byebug
+  cpf_cnpj
   database_cleaner
   devise
   dotenv-rails
