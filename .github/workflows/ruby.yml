@@ -28,7 +28,7 @@ jobs:
       with:
         ruby-version: 2.4.10
     - name: Install SQLite
-      run: sudo apt-get -yqq install libpq-dev
+      run: apt-get install libsqlite3-dev
     - name: Install dependencies
       run: bundle install
     - name: Run tests
