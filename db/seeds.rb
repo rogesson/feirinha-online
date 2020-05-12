@@ -11,6 +11,6 @@ Category.create(name: 'Vestuário')
 Category.create(name: 'Brinquedos')
 Category.create(name: 'Ornamentos')
 
-User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', cpf: CPF.generate)
+User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
 
 Store.create(name: 'Loja Teste', category_id: 1, user_id: 1)
