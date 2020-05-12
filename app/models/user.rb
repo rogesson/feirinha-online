@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
 
   has_many   :stores
   has_many   :payments
-  belongs_to :role
 
   def generate_new_authentication_token
     token = User.generate_unique_secure_token

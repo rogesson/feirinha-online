@@ -6,15 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 Category.create(name: 'Alimentos')
 Category.create(name: 'Vestuário')
 Category.create(name: 'Brinquedos')
 Category.create(name: 'Ornamentos')
 
-Role.create(name: 'Vendedor')
-Role.create(name: 'Comprador')
-
-User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', role_id: 1)
+User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', cpf: CPF.generate)
 
 Store.create(name: 'Loja Teste', category_id: 1, user_id: 1)

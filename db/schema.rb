@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_225023) do
+ActiveRecord::Schema.define(version: 2020_05_12_014036) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -36,12 +36,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_225023) do
     t.bigint "store_id", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["store_id"], name: "index_products_on_store_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "status", force: :cascade do |t|
@@ -70,11 +64,10 @@ ActiveRecord::Schema.define(version: 2020_04_24_225023) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "authentication_token", limit: 30
-    t.integer "role_id"
+    t.string "cpf", limit: 11, default: "0", null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
