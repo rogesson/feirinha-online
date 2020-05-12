@@ -17,10 +17,10 @@ class Api::V1::UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
 
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       json_response 'Suas informações foram atualizadas', true, { user: @user.serialize }, :ok
     else
-      json_response 'Não foi possível atualizar', false, { user: @user.serialize }, :unprocessable_entity
+      json_response 'Não foi possível atualizar', false, {}, :unprocessable_entity
     end
   end
 
@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.destroy
       json_response 'Seu usuário foi removido', true, {}, :ok
     else
-      json_response 'Não foi possível excluir', false, {}, :unprocessable_entity
+      json_response 'Não foi possível excluir', false, { user: @user.serialize }, :unprocessable_entity
     end
   end
 

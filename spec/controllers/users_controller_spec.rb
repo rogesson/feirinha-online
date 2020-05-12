@@ -2,14 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, :type => :controller do
   before(:each) do
-    role = Role.create(name: 'Comprador')
-    @user = User.create(name: 'User', password: '123456', email: 'teste@teste.com', role_id: role.id)
-    @user2 = User.create(name: 'User 2', password: '123456', email: 'teste2@teste.com', role_id: role.id)
+    @user = User.create(name: 'User', password: '123456', email: 'teste@teste.com', doc_number: '225.401.950-32')
+    @user2 = User.create(name: 'User 2', password: '123456', email: 'teste2@teste.com', doc_number: '395.125.450-55')
   end
 
   describe "#index" do
     it "List all users of aplication" do
       set_authentication_token
+
+      @user.update(authentication_token: 'qualquertoken')
+      @user2.update(authentication_token: 'anytoken')
 
       get :index
 
@@ -21,8 +23,10 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
   end
 
   describe '#show' do
-    it 'should return serialized json for a specific user'do
+    it 'returns serialized json for a specific user'do
       set_authentication_token
+
+      @user.update(authentication_token: 'qualquertoken')
 
       params = { id: @user.id }
       get :show, params: params
@@ -33,7 +37,7 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
         .to eq(read_fixture("users_show.json"))
     end
 
-    xit 'should return empty data when user id doesn\'t exist' do
+    xit 'returns empty data when user id doesn\'t exist' do
       set_authentication_token
 
       params = { id: 777 }
@@ -45,8 +49,10 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
   end
 
   describe '#update' do
-    it 'should return updated data when the user is updated' do
+    it 'returns updated data when the user is updated' do
       set_authentication_token
+
+      @user.update(authentication_token: 'qualquertoken')
 
       params = { name: 'Updated', email: 'updated@mail.com' }
       patch :update, params: { id: @user.id, user: params }
@@ -54,25 +60,28 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
       @user.email = params[:email]
       json_response = JSON.parse(response.body)
 
-      puts json_response.to_json
-
       expect(json_response)
         .to eq(read_fixture("users_update.json"))
     end
 
-    xit 'should return unchanged user when trying to update with invalid data' do
+    xit 'returns unchanged user when trying to update with invalid data' do
+      set_authentication_token
+
+      @user.update(authentication_token: 'qualquertoken')
+
       params = { name: 'Updated', email: 'updated' }
       patch :update, params: { id: @user.id, user: params }
       json_response = JSON.parse(response.body)
-      expect(json_response['data']).to eq({ "user" => @user.serialize.stringify_keys })
+      expect(json_response['data']).to eq({})
       expect(json_response['message']).to eq('Não foi possível atualizar')
-      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 
   describe '#destroy' do
-    it 'should deactivate the user and return empty data hash' do
+    it 'deactivates the user and returns empty data hash' do
       set_authentication_token
+
+      @user.update(authentication_token: 'qualquertoken')
 
       params = { id: @user.id }
 
@@ -90,6 +99,6 @@ RSpec.describe Api::V1::UsersController, :type => :controller do
   end
 
   def set_authentication_token
-    request.headers.merge({ "authentication-token" => @user.authentication_token })
+    request.headers.merge({ "authentication-token" => "qualquertoken" })
   end
 end

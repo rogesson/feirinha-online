@@ -3,16 +3,15 @@ require 'rails_helper'
 RSpec.describe Api::V1::StoresController, :type => :controller do
 
   before(:each) do
-    @role = Role.create(name: 'Vendedor')
     @category = Category.create(name: 'Alimentos')
-    @user = User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', role_id: @role.id)
+    @user = User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
   end
 
   describe '#index' do
     it 'lists all active stores' do
       set_authentication_token
 
-      user2 = User.create(name: 'Teste 2', email: 'teste2@mail.com', password: '123456', role_id: @role.id)
+      user2 = User.create(name: 'Teste 2', email: 'teste2@mail.com', password: '123456', doc_number: CPF.generate)
       @store1 = Store.create(name: 'Loja 1', category_id: @category.id, user_id: @user.id)
       @store2 = Store.create(name: 'Loja 2', category_id: @category.id, user_id: user2.id)
 

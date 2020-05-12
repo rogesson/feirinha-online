@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::SessionsController, :type => :controller do
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    role = Role.create(name: 'Comprador')
-    @user = User.create(name: 'User', password: '123456', email: 'teste@teste.com', role_id: role.id)
+    @user = User.create(name: 'User', password: '123456', email: 'teste@teste.com', doc_number: CPF.generate)
   end
 
   describe '#create' do
