@@ -11,6 +11,10 @@ Category.create(name: 'Vestuário')
 Category.create(name: 'Brinquedos')
 Category.create(name: 'Ornamentos')
 
+Status.create(name: 'Inativo')
+Status.create(name: 'Ativo')
+Status.create(name: 'Pendente')
+
 User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
 
 Store.create(name: 'Loja Teste', category_id: 1, user_id: 1)
