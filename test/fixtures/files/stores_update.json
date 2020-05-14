@@ -5,6 +5,8 @@
       "store":{
          "id":1,
          "name":"Store 4 Updated",
+         "phone_number": "(19)9999-9999",
+         "image_url": "http://anystring.com",
          "category":{
             "id":1,
             "name":"Alimentos"

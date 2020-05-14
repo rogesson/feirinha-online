@@ -112,7 +112,9 @@ Em construção - Favor utilizar o category_id número 1 por enquanto para criar
     {
       "store": {
         "name": "Store 3",
-        "category_id": 1
+        "category_id": 1,
+        "phone_number": "(19) 9999-9999",
+        "image_url": "http://anystring.com"
       }
     }
 
@@ -123,15 +125,17 @@ Retorno:
         "is_success": true,
         "data": {
             "store": {
-                "id": 1,
+                "id": 2,
                 "name": "Store 3",
+                "phone_number": "(19) 9999-9999",
+                "image_url": "http://anystring.com",
                 "category": {
                     "id": 1,
                     "name": "Alimentos"
                 },
                 "user": {
                     "id": 1,
-                    "name": "rogesson"
+                    "name": "Teste"
                 },
                 "products": []
             }
@@ -146,25 +150,27 @@ Retorno:
     Retorno:
 
     {
-      "message": "Todas as lojas",
-      "is_success": true,
-      "data": {
-          "stores": [
-              {
-                  "id": 1,
-                  "name": "Store 3",
-                  "category": {
-                      "id": 1,
-                      "name": "Alimentos"
-                  },
-                  "user": {
-                      "id": 1,
-                      "name": "rogesson"
-                  },
-                  "products": []
-              }
-          ]
-      }
+        "message": "Todas as lojas",
+        "is_success": true,
+        "data": {
+            "stores": [
+                {
+                    "id": 2,
+                    "name": "Store 3",
+                    "phone_number": "(19) 9999-9999",
+                    "image_url": "http://anystring.com",
+                    "category": {
+                        "id": 1,
+                        "name": "Alimentos"
+                    },
+                    "user": {
+                        "id": 1,
+                        "name": "Teste"
+                    },
+                    "products": []
+                }
+            ]
+        }
     }
 
     Exibir uma loja específica
@@ -174,23 +180,25 @@ Retorno:
     Resposta:
 
     {
-      "message": "Loja encontrada",
-      "is_success": true,
-      "data": {
-        "store": {
-            "id": 1,
-            "name": "Store 3",
-            "category": {
-                "id": 1,
-                "name": "Alimentos"
-            },
-            "user": {
-                "id": 1,
-                "name": "rogesson"
-            },
-            "products": []
+        "message": "Loja encontrada",
+        "is_success": true,
+        "data": {
+            "store": {
+                "id": 2,
+                "name": "Store 3",
+                "phone_number": "(19) 9999-9999",
+                "image_url": "http://anystring.com",
+                "category": {
+                    "id": 1,
+                    "name": "Alimentos"
+                },
+                "user": {
+                    "id": 1,
+                    "name": "Teste"
+                },
+                "products": []
+            }
         }
-      }
     }
 
     Editar uma loja
@@ -202,8 +210,9 @@ Parâmetros de envio:
 
     {
       "store": {
-        "id": 1,
-        "name": "Loja da maria"
+        "name": "Change name",
+        "phone_number": "(19) 8888-8888",
+        "image_url": "http://changestring"
       }
     }
 
@@ -211,23 +220,25 @@ Parâmetros de envio:
 Retorno:
 
     {
-      "message": "Sua loja foi atualizada",
-      "is_success": true,
-      "data": {
-        "store": {
-            "id": 1,
-            "name": "Loja da maria",
-            "category": {
+        "message": "Sua loja foi atualizada",
+        "is_success": true,
+        "data": {
+            "store": {
                 "id": 1,
-                "name": "Alimentos"
-            },
-            "user": {
-                "id": 1,
-                "name": "rogesson"
-            },
-            "products": []
+                "name": "Change name",
+                "phone_number": "(19) 8888-8888",
+                "image_url": "http://changestring",
+                "category": {
+                    "id": 1,
+                    "name": "Alimentos"
+                },
+                "user": {
+                    "id": 1,
+                    "name": "Teste"
+                },
+                "products": []
+            }
         }
-      }
     }
 
 
@@ -240,6 +251,12 @@ Em construção
 
 - 11/05/2020 - Remoção de 'role_id' dos parâmetros de envio em Criação de Usuário. Por: Hugo
 
-- 11/05/2020 - Remoção de 'role_id' e 'role_name' e inclusão de 'authentication_token' nos retorno de Login de Usuário. Por: Hugo
+- 11/05/2020 - Remoção de 'role_id' e 'role_name' no retorno de Login de Usuário. Por: Hugo
+
+- 11/05/2020 - Inclusão de 'authentication_token' nos retorno de Login de Usuário. Por: Hugo
 
 - 12/05/2020 - Inclusão de 'doc_number' nos parâmetros de envio em Criação de Usuário. Por: Hugo
+
+- 14/05/2020 - Inclusão de 'phone_number' e 'image_url' nos parâmetros de envio em Criação de Loja. Por: Hugo
+
+- 14/05/2020 - Inclusão de 'phone_number' e 'image_url' no retorno de Criação de Loja. Por: Hugo
