@@ -3,18 +3,28 @@ require 'rails_helper'
 RSpec.describe Api::V1::StoresController, :type => :controller do
 
   before(:each) do
-    @category = Category.create(name: 'Alimentos')
-    @user = User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
-    @status = Status.create!(name: 'inactive')
+    @category = Category.create!(name: 'Alimentos')
+    @user = User.create!(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
+    @status = Status.create!(name: 'Ativo')
   end
 
   describe '#index' do
     it 'lists all active stores' do
       set_authentication_token
 
-      user2 = User.create(name: 'Teste 2', email: 'teste2@mail.com', password: '123456', doc_number: CPF.generate)
-      @store1 = Store.create!(name: 'Loja 1', category_id: @category.id, user_id: @user.id, status: @status)
-      @store2 = Store.create!(name: 'Loja 2', category_id: @category.id, user_id: user2.id, status: @status)
+      user2 = User.create!(name: 'Teste 2', email: 'teste2@mail.com', password: '123456', doc_number: CPF.generate)
+      @store1 = Store.create!(name: 'Loja 1',
+                              category_id: @category.id,
+                              user_id: @user.id,
+                              status: @status,
+                              phone_number: '(19)9999-9999',
+                              image_url: 'http://anystring.com')
+      @store2 = Store.create!(name: 'Loja 2',
+                              category_id: @category.id,
+                              user_id: user2.id,
+                              status: @status,
+                              phone_number: '(19)8888-8888',
+                              image_url: 'http://anotherstring.com')
 
       get :index, params: {}
 
@@ -32,6 +42,9 @@ RSpec.describe Api::V1::StoresController, :type => :controller do
         store: {
           name: 'Store 3',
           category_id: @category.id,
+          status_id: @status.id,
+          phone_number: '(19)9999-9999',
+          image_url: 'http://anystring.com'
         }
       }
 
@@ -48,7 +61,12 @@ RSpec.describe Api::V1::StoresController, :type => :controller do
     it 'shows store information' do
       set_authentication_token
 
-      @store1 = Store.create!(name: 'Loja 1', category_id: @category.id, user_id: @user.id, status: @status)
+      @store1 = Store.create!(name: 'Loja 1',
+                              category_id: @category.id,
+                              user_id: @user.id,
+                              status: @status,
+                              phone_number: '(19)9999-9999',
+                              image_url: 'http://anystring.com')
 
       get :show, params: { id: @store1.id }
 
@@ -68,6 +86,8 @@ RSpec.describe Api::V1::StoresController, :type => :controller do
         id: @store.id,
         store: {
           name: 'Store 4 Updated',
+          phone_number: '(19)9999-9999',
+          image_url: 'http://anystring.com'
         }
       }
 

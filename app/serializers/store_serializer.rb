@@ -1,6 +1,8 @@
 class StoreSerializer < ActiveModel::Serializer
   attribute :id
   attribute :name
+  attribute :phone_number
+  attribute :image_url
   attribute :category
   attribute :user
   attribute :products

@@ -10,10 +10,9 @@ class Api::V1::StoresController < ApplicationController
   # localhost:3000/api/v1/stores/
   def create
     store = Store.new(store_params)
-    store.user_id = current_user.id
-    store.status = Status.find_by_name('inactive')
-
-    if store.save!
+    store.user_id = @current_user.id
+    store.status = Status.find_by_name('Ativo')
+    if store.save
       json_response 'Loja criada!', true, { store: store.serialize }, :ok
     else
       json_response 'Não foi possível salvar', false, {}, :bad_request
@@ -56,6 +55,6 @@ class Api::V1::StoresController < ApplicationController
   private
 
     def store_params
-      params.require(:store).permit(:name, :category_id)
+      params.require(:store).permit(:name, :category_id, :phone_number, :image_url)
     end
 end
