@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Serialize
+
   acts_as_token_authenticatable
 
   # Include default devise modules. Others available are:
@@ -16,10 +18,6 @@ class User < ActiveRecord::Base
   def generate_new_authentication_token
     token = User.generate_unique_secure_token
     update_attributes authentication_token: token
-  end
-
-  def serialize
-    UserSerializer.new(self).to_hash
   end
 
   def validate_cpf_cnpj
