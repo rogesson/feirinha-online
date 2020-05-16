@@ -1,0 +1,14 @@
+{
+   "message":"Produto inserido!",
+   "is_success":true,
+   "data":{
+      "product":{
+         "name":"Bolo",
+         "price":15.99,
+         "store":{
+            "id":1,
+            "name":"Loja1"
+         }
+      }
+   }
+}

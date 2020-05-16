@@ -1,0 +1,14 @@
+{
+   "message":"Visualizar produto",
+   "is_success":true,
+   "data":{
+      "product":{
+         "name":"Beterraba",
+         "price":1.99,
+         "store":{
+            "id":1,
+            "name":"Loja1"
+         }
+      }
+   }
+}

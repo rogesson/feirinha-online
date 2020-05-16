@@ -1,0 +1,24 @@
+{
+   "message":"Lista de produtos",
+   "is_success":true,
+   "data":{
+      "products":[
+         {
+            "name":"Beterraba",
+            "price":1.99,
+            "store":{
+               "id":1,
+               "name":"Loja1"
+            }
+         },
+         {
+            "name":"Milho",
+            "price":99.0,
+            "store":{
+               "id":1,
+               "name":"Loja1"
+            }
+         }
+      ]
+   }
+}
