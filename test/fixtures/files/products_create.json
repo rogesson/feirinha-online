@@ -5,6 +5,8 @@
       "product":{
          "name":"Bolo",
          "price":15.99,
+         "description":null,
+         "image_url":null,
          "store":{
             "id":1,
             "name":"Loja1"

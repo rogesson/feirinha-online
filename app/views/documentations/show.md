@@ -257,7 +257,9 @@ Retorno:
     {
       "product": {
         "name": "Bolo de Morango",
-        "price": 15.99
+        "price": 15.99,
+        "description": "descrição",
+        "image_url": "http://urldeimagem.com"
       }
     }
 
@@ -270,6 +272,8 @@ Retorno:
         "product": {
           "name": "Bolo de Morango",
           "price": 15.99,
+          "description": "descrição",
+          "image_url": "http://urldeimagem.com",
           "store": {
             "id": 1,
             "name": "Store 3"
@@ -294,6 +298,8 @@ Retorno:
           "product": {
               "name": "Bolo de Morango",
               "price": 15.99,
+              "description": "descrição",
+              "image_url": "http://urldeimagem.com",
               "store": {
                   "id": 1,
                   "name": "Store 3"
@@ -314,7 +320,9 @@ Retorno:
     {
       "product": {
         "name": "Cenoura",
-        "price": 3.99
+        "price": 3.99,
+        "description": "descrição",
+        "image_url": "http://urldeimagem.com"
       }
     }
 
@@ -326,6 +334,8 @@ Retorno:
             "product": {
                 "name": "Cenoura",
                 "price": 3.99,
+                "description": "descrição",
+                "image_url": "http://urldeimagem.com",
                 "store": {
                     "id": 1,
                     "name": "Store 3"
@@ -368,3 +378,5 @@ Retorno:
 - 14/05/2020 - Inclusão de 'phone_number' e 'image_url' no retorno de Criação de Loja. Por: Hugo
 
 - 16/05/2020 - Criação dos testes para as rotas CRUD (CREATE, UPDATE, READ, DELETE) do produto. Por: Rogesson
+
+- 17/05/2020 - Inclusão de 'description' e 'image_url' nos parâmetros de envio/retorno de Produtos. Por: Hugo

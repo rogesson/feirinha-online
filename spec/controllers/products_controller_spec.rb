@@ -14,9 +14,9 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     it 'lists all products of a given store' do
       set_authentication_token
 
-      Product.create!(name: "Beterraba", price: 1.99, category_id: @category.id, store_id: @store.id)
+      Product.create!(name: "Beterraba", price: 1.99, store_id: @store.id)
 
-      Product.create!(name: "Milho", price: 99, category_id: @category.id, store_id: @store.id)
+      Product.create!(name: "Milho", price: 99, store_id: @store.id)
 
       get :index, params: { store_id: @store.id }
 
@@ -49,7 +49,7 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     it 'shows the product information' do
       set_authentication_token
 
-      product = Product.create!(name: "Beterraba", price: 1.99, category_id: @category.id, store_id: @store.id)
+      product = Product.create!(name: "Beterraba", price: 1.99, store_id: @store.id)
 
       get :show, params: { store_id: 1, id: product.id }
 
@@ -64,7 +64,7 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     it 'updates product with new informations' do
       set_authentication_token
 
-      product = Product.create!(name: "Beterraba", price: 1.99, category_id: @category.id, store_id: @store.id)
+      product = Product.create!(name: "Beterraba", price: 1.99, store_id: @store.id)
 
       product_params  = {
         name: "Cenoura",
@@ -84,7 +84,7 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     it 'destroys product with new informations' do
       set_authentication_token
 
-      product = Product.create!(name: "Beterraba", price: 1.99, category_id: @category.id, store_id: @store.id)
+      product = Product.create!(name: "Beterraba", price: 1.99, store_id: @store.id)
 
       get :destroy, params: { store_id: 1, id: product.id }
 

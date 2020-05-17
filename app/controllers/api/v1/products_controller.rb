@@ -10,7 +10,6 @@ class Api::V1::ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.category_id = @store.category_id
     product.store_id = @store.id
 
     if product.save
@@ -54,7 +53,7 @@ class Api::V1::ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, :description, :image_url)
     end
 
     def check_user_store
