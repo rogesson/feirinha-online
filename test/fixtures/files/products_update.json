@@ -5,6 +5,8 @@
       "product":{
          "name":"Cenoura",
          "price":3.66,
+         "description":null,
+         "image_url":null,
          "store":{
             "id":1,
             "name":"Loja1"

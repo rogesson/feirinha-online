@@ -6,6 +6,8 @@
          {
             "name":"Beterraba",
             "price":1.99,
+            "description":null,
+            "image_url":null,
             "store":{
                "id":1,
                "name":"Loja1"
@@ -14,6 +16,8 @@
          {
             "name":"Milho",
             "price":99.0,
+            "description":null,
+            "image_url":null,
             "store":{
                "id":1,
                "name":"Loja1"

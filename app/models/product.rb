@@ -1,7 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :store
+  include Serialize
 
-  def serialize
-    ProductSerializer.new(self).to_hash
-  end
+  belongs_to :store
 end

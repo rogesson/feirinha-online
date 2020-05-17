@@ -1,6 +1,8 @@
 class ProductSerializer < ActiveModel::Serializer
   attribute :name
   attribute :price
+  attribute :description
+  attribute :image_url
   attribute :store
 
   def store
