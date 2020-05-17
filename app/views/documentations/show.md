@@ -241,9 +241,115 @@ Retorno:
         }
     }
 
+***
 
 # Produtos
-Em construção
+
+    Criação de Produtos
+
+    URL: https://feirinha-api.herokuapp.com/api/v1/stores/1/products
+    Method: **POST**
+    **Token no Header**
+  **OBS:** Na URL o número da loja deve ser passado no lugar de **store_id**: /store/**store_id**/products
+
+    Parâmetros de Envio:
+
+    {
+      "product": {
+        "name": "Bolo de Morango",
+        "price": 15.99
+      }
+    }
+
+    Retorno:
+
+    {
+      "message": "Produto inserido!",
+      "is_success": true,
+      "data": {
+        "product": {
+          "name": "Bolo de Morango",
+          "price": 15.99,
+          "store": {
+            "id": 1,
+            "name": "Store 3"
+          }
+        }
+      }
+    }
+
+    Informações do Produto:
+
+    URL: https://feirinha-api.herokuapp.com/api/v1/stores/1/products/1
+    Method: **GET**
+    **Token no Header**
+**OBS:** Na URL o número da loja deve ser passado no lugar de **store_id** e o id do produto no **product_id**: /store/**store_id**/products/**product_id**
+
+  Retorno:
+
+    {
+      "message": "Visualizar produto",
+      "is_success": true,
+      "data": {
+          "product": {
+              "name": "Bolo de Morango",
+              "price": 15.99,
+              "store": {
+                  "id": 1,
+                  "name": "Store 3"
+              }
+          }
+      }
+    }
+
+    Atualização do Produto
+
+    URL: https://feirinha-api.herokuapp.com/api/v1/stores/1/products
+    Method: **PUT ou PATCH**
+    **Token no Header**
+  **OBS:** Na URL o número da loja deve ser passado no lugar de **store_id**: /store/**store_id**/products
+
+    Parâmetros de Envio:
+
+    {
+      "product": {
+        "name": "Cenoura",
+        "price": 3.99
+      }
+    }
+
+    Retorno:
+    {
+        "message": "Produto atualizado",
+        "is_success": true,
+        "data": {
+            "product": {
+                "name": "Cenoura",
+                "price": 3.99,
+                "store": {
+                    "id": 1,
+                    "name": "Store 3"
+                }
+            }
+        }
+    }
+
+    Deleção do Produto:
+
+    URL: https://feirinha-api.herokuapp.com/api/v1/stores/1/products/1
+    Method: **DELETE*
+    **Token no Header**
+**OBS:** Na URL o número da loja deve ser passado no lugar de **store_id** e o id do produto no **product_id**: /store/**store_id**/products/**product_id**
+
+    Retorno:
+
+    {
+        "message": "Produto excluído",
+        "is_success": true,
+        "data": {}
+    }
+
+***
 
 # Histórico de alterações na API
 
@@ -260,3 +366,5 @@ Em construção
 - 14/05/2020 - Inclusão de 'phone_number' e 'image_url' nos parâmetros de envio em Criação de Loja. Por: Hugo
 
 - 14/05/2020 - Inclusão de 'phone_number' e 'image_url' no retorno de Criação de Loja. Por: Hugo
+
+- 16/05/2020 - Criação dos testes para as rotas CRUD (CREATE, UPDATE, READ, DELETE) do produto. Por: Rogesson
