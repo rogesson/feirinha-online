@@ -10,12 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_122111) do
+ActiveRecord::Schema.define(version: 2020_05_21_013812) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_order_statuses_on_name", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date "order_date"
+    t.integer "user_id"
+    t.integer "store_id"
+    t.integer "order_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["store_id"], name: "index_orders_on_store_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -36,6 +55,17 @@ ActiveRecord::Schema.define(version: 2020_05_17_122111) do
     t.string "description"
     t.string "image_url"
     t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "products_orders", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.integer "quantity"
+    t.float "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_products_orders_on_order_id"
+    t.index ["product_id"], name: "index_products_orders_on_product_id"
   end
 
   create_table "status", force: :cascade do |t|
@@ -60,6 +90,9 @@ ActiveRecord::Schema.define(version: 2020_05_17_122111) do
     t.datetime "term"
     t.string "phone_number"
     t.string "image_url"
+    t.string "address"
+    t.string "coord_1"
+    t.string "coord_2"
     t.index ["category_id"], name: "index_stores_on_category_id"
     t.index ["status_id"], name: "index_stores_on_status_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
