@@ -15,6 +15,15 @@ Status.create(name: 'Inativo')
 Status.create(name: 'Ativo')
 Status.create(name: 'Pendente')
 
-User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
+OrderStatus.create(name: 'Aberto')
+OrderStatus.create(name: 'Enviado')
+OrderStatus.create(name: 'Entregue')
+OrderStatus.create(name: 'Cancelado')
 
-Store.create(name: 'Loja Teste', category_id: 1, user_id: 1)
+User.create(name: 'Teste', email: 'teste@mail.com', password: '123456', doc_number: CPF.generate)
+User.create(name: 'Teste2', email: 'teste2@mail.com', password: '123456', doc_number: CPF.generate)
+
+Store.create(name: 'Loja Teste', category_id: Category.first.id, user_id: User.first.id, status_id: Status.second.id)
+
+Product.create(name: 'Cebola', price: 1, store_id: Store.first.id)
+Product.create(name: 'Milho', price: 2, store_id: Store.first.id)

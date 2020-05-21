@@ -5,6 +5,7 @@ class Store < ActiveRecord::Base
   belongs_to :category
   belongs_to :status
   has_many :products
+  has_many :orders
 
   before_save :set_term
 
