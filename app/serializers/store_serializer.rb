@@ -3,6 +3,7 @@ class StoreSerializer < ActiveModel::Serializer
   attribute :name
   attribute :phone_number
   attribute :image_url
+  attribute :address
   attribute :coord_1
   attribute :coord_2
   attribute :category

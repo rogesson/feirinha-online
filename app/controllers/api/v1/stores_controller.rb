@@ -37,7 +37,7 @@ class Api::V1::StoresController < ApplicationController
     store = Store.find_by(id: params[:id])
 
     if store
-      store.update_attributes!(store_params)
+      store.update_attributes(store_params)
       json_response 'Sua loja foi atualizada', true, { store: store.serialize }, :ok
     else
       json_response 'Loja não encontrada', false, {}, :not_found
@@ -55,6 +55,6 @@ class Api::V1::StoresController < ApplicationController
   private
 
     def store_params
-      params.require(:store).permit(:name, :category_id, :phone_number, :image_url, :coord_1, :coord_2)
+      params.require(:store).permit(:name, :category_id, :phone_number, :image_url, :address, :coord_1, :coord_2)
     end
 end

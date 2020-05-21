@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_013812) do
     t.datetime "term"
     t.string "phone_number"
     t.string "image_url"
+    t.string "address"
     t.string "coord_1"
     t.string "coord_2"
     t.index ["category_id"], name: "index_stores_on_category_id"

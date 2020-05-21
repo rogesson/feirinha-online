@@ -93,6 +93,35 @@ Retorno:
       }
     }
 
+    Edição de usuário
+    URL: https://feirinha-api.herokuapp.com/api/v1/users/1
+    Method: **PUT ou PATCH**
+    **Token no Header***
+    Parâmetros de envio
+
+    {
+    	"user":{
+    		"name": "Test Change",
+    		"email": "change@mail.com",
+    		"password": "1234567"
+    	}
+    }
+
+Retorno:
+
+    {
+        "message": "Suas informações foram atualizadas",
+        "is_success": true,
+        "data": {
+            "user": {
+                "id": 1,
+                "name": "Test Change",
+                "email": "teste@mail.com",
+                "authentication_token": "ipkEnP6DucwyKqNWuA-2"
+            }
+        }
+    }
+
 ***
 
 # Categorias
@@ -114,7 +143,10 @@ Em construção - Favor utilizar o category_id número 1 por enquanto para criar
         "name": "Store 3",
         "category_id": 1,
         "phone_number": "(19) 9999-9999",
-        "image_url": "http://anystring.com"
+        "image_url": "http://anystring.com",
+        "address": "endereço",
+        "coord_1": "123123",
+        "coord_2": "123123"
       }
     }
 
@@ -129,6 +161,9 @@ Retorno:
                 "name": "Store 3",
                 "phone_number": "(19) 9999-9999",
                 "image_url": "http://anystring.com",
+                "address": "endereço",
+                "coord_1": "123123",
+                "coord_2": "123123"
                 "category": {
                     "id": 1,
                     "name": "Alimentos"
@@ -159,6 +194,9 @@ Retorno:
                     "name": "Store 3",
                     "phone_number": "(19) 9999-9999",
                     "image_url": "http://anystring.com",
+                    "address": "endereço",
+                    "coord_1": "123123",
+                    "coord_2": "123123"
                     "category": {
                         "id": 1,
                         "name": "Alimentos"
@@ -188,6 +226,9 @@ Retorno:
                 "name": "Store 3",
                 "phone_number": "(19) 9999-9999",
                 "image_url": "http://anystring.com",
+                "address": "endereço",
+                "coord_1": "123123",
+                "coord_2": "123123"
                 "category": {
                     "id": 1,
                     "name": "Alimentos"
@@ -212,7 +253,10 @@ Parâmetros de envio:
       "store": {
         "name": "Change name",
         "phone_number": "(19) 8888-8888",
-        "image_url": "http://changestring"
+        "image_url": "http://changestring",
+        "address": "endereço",
+        "coord_1": "123123",
+        "coord_2": "123123"
       }
     }
 
@@ -228,6 +272,9 @@ Retorno:
                 "name": "Change name",
                 "phone_number": "(19) 8888-8888",
                 "image_url": "http://changestring",
+                "address": "endereço",
+                "coord_1": "123123",
+                "coord_2": "123123"
                 "category": {
                     "id": 1,
                     "name": "Alimentos"
@@ -239,6 +286,19 @@ Retorno:
                 "products": []
             }
         }
+    }
+
+    Exclusão de loja
+    URL: https://feirinha-api.herokuapp.com/api/v1/stores/1
+    Method: **DELETE**
+    **Token no Header***
+
+Retorno:
+
+    {
+        "message": "Sua loja foi removida",
+        "is_success": true,
+        "data": {}
     }
 
 ***
@@ -380,3 +440,7 @@ Retorno:
 - 16/05/2020 - Criação dos testes para as rotas CRUD (CREATE, UPDATE, READ, DELETE) do produto. Por: Rogesson
 
 - 17/05/2020 - Inclusão de 'description' e 'image_url' nos parâmetros de envio/retorno de Produtos. Por: Hugo
+
+- 20/05/2020 - Inclusão de 'address', 'coord_1' e 'coord_2' nos parâmetros de envio/retorno de Loja. Por: Hugo
+
+- 20/05/2020 - Inclusão da rota de Edição de Usuário na documentação. Por: Hugo
