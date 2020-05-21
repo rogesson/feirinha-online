@@ -8,6 +8,8 @@
             "name":"Loja 1",
             "phone_number":"(19)9999-9999",
             "image_url":"http://anystring.com",
+            "coord_1": null,
+            "coord_2": null,
             "category":{
                "id":1,
                "name":"Alimentos"
@@ -25,6 +27,8 @@
             "name":"Loja 2",
             "phone_number":"(19)8888-8888",
             "image_url":"http://anotherstring.com",
+            "coord_1": null,
+            "coord_2": null,
             "category":{
                "id":1,
                "name":"Alimentos"
