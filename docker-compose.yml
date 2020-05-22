@@ -16,3 +16,16 @@ services:
       - postgres
     links:
       - postgres
+
+  web_production:
+    build: .
+    command: bash -c "build-scripts/web/initialize_production.sh"
+    restart: on-failure
+    volumes:
+      - .:/var/www/feirinha-online
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    links:
+      - postgres
